@@ -1,9 +1,10 @@
-var connection = require('../config/connect');
+var connection = require('../config/connectMon');
 var config = require('../config/db');
+
 
 module.exports.insertOne=function(obj, cb){
 	connection.init(function(err, client){
 		var db = client.db(config.dbName);
-		db.collection('contactus').insertOne(obj).toArray(cb);
+		db.collection('contactus').insertOne(obj, cb);
 	});
 }
